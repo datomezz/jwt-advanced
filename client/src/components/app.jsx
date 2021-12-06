@@ -33,7 +33,6 @@ const UsersComponent = () => {
   }
 
   if (isAuth) {
-    console.log("zdarova");
     return (
       <>
         <button onClick={() => getUsers()}>Get Users</button>

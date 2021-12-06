@@ -17,7 +17,6 @@ class EmailService {
   }
 
   async sendActivationMail(email, link) {
-    console.log(email, link);
     await this.transporter.sendMail({
       from: SMTP_LOGIN,
       to: email,

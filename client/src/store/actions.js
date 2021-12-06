@@ -21,7 +21,6 @@ export const registration = async (email, password) => {
   try {
     const res = await AuthService.registration(email, password)
     localStorage.setItem("token", res.data.accessToken);
-    console.log("res", res);
 
   } catch (e) {
     console.log(e.response?.data?.message);
@@ -32,7 +31,6 @@ export const logout = async (email, password) => {
   try {
     const res = await AuthService.logout();
     localStorage.removeItem("token");
-    console.log("res", res);
 
   } catch (e) {
     console.log(e.response?.data?.message);
@@ -57,7 +55,6 @@ export const ACTION_LOGOUT = () => {
   return async (dispatch) => {
     try {
       const res = await axios.post(`${API_URL}logout`, {}, { withCredentials: true });
-      console.log("logoutres", res);
       localStorage.removeItem("token");
       dispatch({type : "SET_AUTH", payload : false})
     } catch (e) {

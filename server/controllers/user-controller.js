@@ -38,9 +38,7 @@ class UserController {
   async logout(req, res, next) {
     try {
       const { refreshToken } = req.cookies;
-      console.log('pizdec', req.cookies);
       const token = await userService.logout(refreshToken);
-      console.log("token", token);
       res.clearCookie("refreshToken");
       return res.json(token);
 
@@ -65,9 +63,7 @@ class UserController {
   async refresh(req, res, next) {
     try {
       const { refreshToken } = req.cookies;
-      console.log("refreshiii", req.cookies.refreshToken);
       const userData = await userService.refresh(refreshToken);
-      console.log("refreshUserData", userData);
       res.cookie("refreshToken", userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly : true });
       return res.json(userData);
 

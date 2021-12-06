@@ -15,10 +15,6 @@ app.use(cors({
   origin : CLIENT_URL
 }));
 app.use("/", router);
-app.get("/", (req, res) => {
-  console.log("coock", req.cookies);
-  res.status(200).json({ message: "zdarova" });
-})
 app.use(errorMiddleware);
 
 
